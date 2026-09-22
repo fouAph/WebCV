@@ -1,0 +1,14 @@
+{
+  "name": "webcv",
+  "version": "1.0.0",
+  "description": "Modern WebCV & Personal Knowledge Vault",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["cv", "portfolio", "vault", "resume", "knowledge-base"],
+  "author": "Agus Pratama",
+  "license": "MIT"
+}
