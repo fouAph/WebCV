@@ -1,6 +1,6 @@
 import { DEFAULT_DATA } from './defaultData.js';
 
-const STORAGE_KEY = 'webcv_agus_prastiya_v1';
+const STORAGE_KEY = 'webcv_agus_prastiya_v2';
 
 class StorageService {
   constructor() {

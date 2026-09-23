@@ -56,19 +56,17 @@ function renderGames(games, filter = 'All') {
     if (game.isUnreleased) {
       actionBtn = `<span class="game-action muted">Unreleased Prototype</span>`;
     } else if (game.playUrl) {
-      const btnLabel = game.playUrl.includes('steampowered.com')
-        ? 'View on Steam ↗'
-        : (game.playUrl.includes('itch.io') ? 'Play on Itch.io ↗' : `Play on ${escapeHtml(game.platform || 'Roblox')} ↗`);
+      const btnLabel = game.playUrl.includes('github.com')
+        ? 'View on GitHub ↗'
+        : (game.playUrl.includes('steampowered.com')
+          ? 'View on Steam ↗'
+          : (game.playUrl.includes('itch.io') ? 'Play on Itch.io ↗' : `Play on ${escapeHtml(game.platform || 'Roblox')} ↗`));
       actionBtn = `<a href="${escapeHtml(game.playUrl)}" target="_blank" rel="noopener noreferrer" class="game-action">
           <span>${btnLabel}</span>
         </a>`;
     } else {
       actionBtn = `<span class="game-action muted">${escapeHtml(game.status || 'Active Project')}</span>`;
     }
-
-    const contributionsList = Array.isArray(game.contributions) && game.contributions.length > 0
-      ? game.contributions.map(item => `<li>${escapeHtml(item)}</li>`).join('')
-      : `<li>${escapeHtml(game.description)}</li>`;
 
     const hasMultipleImages = Array.isArray(game.images) && game.images.length > 1;
 
@@ -127,20 +125,6 @@ function renderGames(games, filter = 'All') {
         <div class="game-body">
           <h3 class="game-name">${escapeHtml(game.title)}</h3>
           <p class="game-summary">${escapeHtml(game.description)}</p>
-
-          <!-- Expandable "What I Built" Section -->
-          <div class="contributions-box">
-            <button type="button" class="btn-toggle-contributions" aria-expanded="false" data-target="contrib-${escapeHtml(game.id)}">
-              <span class="toggle-icon">▸</span>
-              <span>What I Built / Role</span>
-            </button>
-            <div class="contributions-panel" id="contrib-${escapeHtml(game.id)}">
-              <ul class="contributions-list">
-                ${contributionsList}
-              </ul>
-            </div>
-          </div>
-
           <div class="game-tech-row">${tagsHtml}</div>
           ${actionBtn}
         </div>
@@ -237,21 +221,6 @@ function init() {
       renderGames(storage.getAll().games, state.filter);
     });
   }
-
-  // Toggle What I Built contributions panel
-  document.addEventListener('click', (e) => {
-    const toggleBtn = e.target.closest('.btn-toggle-contributions');
-    if (!toggleBtn) return;
-    const targetId = toggleBtn.dataset.target;
-    const panel = document.getElementById(targetId);
-    if (!panel) return;
-
-    const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-    toggleBtn.setAttribute('aria-expanded', !isExpanded);
-    const icon = toggleBtn.querySelector('.toggle-icon');
-    if (icon) icon.textContent = !isExpanded ? '▾' : '▸';
-    panel.classList.toggle('open', !isExpanded);
-  });
 
   // Carousel Prev/Next & Dots Navigation
   document.addEventListener('click', (e) => {

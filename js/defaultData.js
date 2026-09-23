@@ -29,6 +29,32 @@ export const DEFAULT_DATA = {
   // "Store Everything" - The Work & Games Hub
   games: [
     {
+      id: "rbx-project-architect",
+      title: "Project Architect (Roblox Stack)",
+      studio: "Personal Project • Developer Tool",
+      platform: "Roblox (Electron)",
+      category: "Roblox Tools",
+      status: "Completed",
+      visits: "",
+      visitsRaw: 0,
+      role: "Sole Developer & System Architect",
+      thumbnail: "./assets/projects/project-architect-overview.png",
+      images: [
+        "./assets/projects/project-architect-overview.png",
+        "./assets/projects/project-architect-features.png"
+      ],
+      description: "Desktop scaffolding and system injection application for Roblox game development. Bootstraps production-ready codebases with 4-Layer Domain-Driven Design (DDD) and Model-View-Presenter (MVP) patterns using Knit, Wally, and Rojo.",
+      contributions: [
+        "Architected an Electron desktop application with interactive modular system selection and dependency resolution.",
+        "Engineered dual workflow modes: New Project Generation (Wally packages, Rojo sync, Git init) and Non-destructive Feature Injection into existing codebases.",
+        "Built smart file conflict detector featuring side-by-side interactive split-diff inspection and resolution.",
+        "Implemented automated PlayerData schema & types verification with auto-injection for persistent game systems.",
+        "Created bundled developer skill guides (.skills/) ensuring clean architecture standards and AI assistant pair-programming integration."
+      ],
+      tags: ["Electron", "Node.js", "Roblox", "Luau", "Knit", "Wally", "Rojo", "Clean Architecture", "Developer Tools"],
+      playUrl: "https://github.com/fouAph"
+    },
+    {
       id: "rbx-claw",
       title: "Brainrot Claw Machine",
       studio: "Rivrs x Sim",
