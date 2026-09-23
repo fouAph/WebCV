@@ -1,14 +1,20 @@
 {
-  "name": "webcv",
+  "name": "portfolio",
   "version": "1.0.0",
-  "description": "Modern WebCV & Personal Knowledge Vault",
+  "description": "Agus Prastiya Hidayatullah — Game Programmer Portfolio",
   "main": "server.js",
   "type": "module",
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js"
   },
-  "keywords": ["cv", "portfolio", "vault", "resume", "knowledge-base"],
-  "author": "Agus Pratama",
+  "keywords": [
+    "cv",
+    "portfolio",
+    "vault",
+    "resume",
+    "knowledge-base"
+  ],
+  "author": "Agus",
   "license": "MIT"
 }
